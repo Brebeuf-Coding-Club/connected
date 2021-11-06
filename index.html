@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en-US">
+	<head>
+		<title>Connected?</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+		<link rel="stylesheet" href="style.css">
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
+		<script src="test-data.js"></script>
+		<script src="function.js"></script>
+
+	</head>
+
+	<body>
+		<div id="template-target"></div>
+
+		<script id="template" type="text/x-handlebars-template">
+			<h1 class="page-header"><b>Connected?</b></h1>
+			<ui class="list-group">
+				{{#each email}}
+				<a class="list-group-item" data-toggle="collapse" href=#email-{{this.index}}>
+					{{@key}}
+				</a>
+
+				
+				<div class="collapse" id=email-{{this.index}}>
+				{{#each accounts}}
+					<a class="list-group-item account-list" href="#">
+						{{@key}}
+						{{#each tags}}
+						<span class="badge {{this}}">{{this}}</span>
+						{{/each}}
+					</a>
+				{{/each}}
+				</div>
+
+
+				<br>
+				{{/each}}
+			</ui>
+
+		</script>
+			
+		
+		<script>
+			var source = document.getElementById("template").innerHTML;
+			var template = Handlebars.compile(source);
+
+			
+			
+			document.getElementById("template-target").innerHTML = template(emails);
+		</script>
+	</body>
+</html>

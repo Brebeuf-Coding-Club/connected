@@ -1,0 +1,43 @@
+:root {
+	--main-dark: #84ACCE;
+	--main-light: #C8DBDF;
+}
+
+body {
+	font-family: "Montserrat", sans-serif;
+	padding: 10px 300px;
+	background-color: var(--main-dark);
+}
+
+
+h1.page-header, h1 small {
+	color: #FFFFFF;
+}
+
+a.account-list {
+	background-color: var(--main-light);
+}
+
+.\(123\)456-7890 {
+	background-color: red;
+}
+
+.\(345\)678-9321 {
+	background-color: orange;
+}
+
+.\(293\)847-5439 {
+	background-color: green;
+}
+
+.SchoolAddress {
+	background-color: black;
+}
+
+.HomeAddress {
+	background-color: gray;
+}
+
+span.badge > a {
+	all: none;
+}
